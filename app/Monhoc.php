@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Monhoc extends Model
 {
     protected $table='monhocs';
+    protected $fillable = ['id', 'mamon', 'tenmon','sotinchi', 'sotiet', 'hocky_id','created_at','updated_at'];
 
     public function lops()
     {

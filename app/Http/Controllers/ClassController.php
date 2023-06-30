@@ -22,24 +22,24 @@ class ClassController extends Controller
     }
     public function datajson(Request $request){
         $where = [];
-//        if (isset($request->search['custom']['typesearch'])){
-//            if(($request->search['custom']['typesearch'])=="0"){
-//                if($request->search['custom']['name']){
-//                    $where[]= ['name','like', '%' . trim($request->search['custom']['name']) . '%'];
-//                }
-//                if($request->search['custom']['email']){
-//                    $where[]= ['email','like', '%' . trim($request->search['custom']['email']) . '%'];
-//                }
-//            }
-//            if (($request->search['custom']['typesearch'])=="1"){
-//                if($request->search['custom']['name']){
-//                    $where[]= ['name',trim($request->search['custom']['name'])];
-//                }
-//                if($request->search['custom']['email']){
-//                    $where[]= ['email',trim($request->search['custom']['email'])];
-//                }
-//            }
-//        }
+        if (isset($request->search['custom']['typesearch'])){
+            if(($request->search['custom']['typesearch'])=="0"){
+                if($request->search['custom']['name']){
+                    $where[]= ['name','like', '%' . trim($request->search['custom']['name']) . '%'];
+                }
+                if($request->search['custom']['email']){
+                    $where[]= ['email','like', '%' . trim($request->search['custom']['email']) . '%'];
+                }
+            }
+            if (($request->search['custom']['typesearch'])=="1"){
+                if($request->search['custom']['name']){
+                    $where[]= ['name',trim($request->search['custom']['name'])];
+                }
+                if($request->search['custom']['email']){
+                    $where[]= ['email',trim($request->search['custom']['email'])];
+                }
+            }
+        }
 
         DB::statement(DB::raw('set @rownum=0'));
         $class=DB::table('lops')->join('khoas','lops.khoa_id','=','khoas.id')->select([
@@ -123,17 +123,17 @@ class ClassController extends Controller
         $model->tenlop = $request->edit_tenlop;
         $model->khoa_id = $request->edit_khoa_id;
         $model->save();
-        try{
-            return Response::json([
-                'error' => 0,
-                'message' => 'Sửa Thành Công '.$request->name
-            ]);
-        }catch (QueryException $e){
-            return Response::json([
-                'error' => 1,
-                'message' =>$e
-            ]);
-        }
+//        try{
+//            return Response::json([
+//                'error' => 0,
+//                'message' => 'Sửa Thành Công '.$request->name
+//            ]);
+//        }catch (QueryException $e){
+//            return Response::json([
+//                'error' => 1,
+//                'message' =>$e
+//            ]);
+//        }
     }
     public function detail($id)
     {

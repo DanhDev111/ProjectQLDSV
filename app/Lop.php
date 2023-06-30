@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lop extends Model
 {
+    protected $fillable = ['id', 'malop', 'hosv', 'tenlop', 'khoaid','created_at','updated_at'];
     protected $table='lops';
-
     public function khoas()
     {
         return $this->belongsTo('App\Khoa','khoa_id','id');

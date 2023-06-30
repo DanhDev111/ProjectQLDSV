@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Diem extends Model
 {
     protected $table='diems';
+
     public function sinhviens()
     {
         return $this->belongsTo('App\Sinhvien','sinhvien_id','id');

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Giangvien extends Model
 {
+    protected $fillable = ['id', 'magv', 'hogv', 'tengv','ngaysinh', 'gioitinh', 'hocham', 'hocvi','created_at','updated_at'];
     protected $table='giangviens';
     public function monhocs()
     {

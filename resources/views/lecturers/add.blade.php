@@ -9,6 +9,7 @@
                 <h4 class="modal-title"><b>Thêm Giảng Viên</b></h4>
             </div>
             <form method="post" action="{{route('lecturer.addlecturer')}}" id="frm_add_lucturer">
+                @csrf
             <div class="col-md-12">
                 <div class="widget-body">
                         <div class="row">
@@ -117,7 +118,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-flat" id="btn_add_lecturer">Lưu lại</button>
+                <button type="submit" class="btn btn-info btn-flat" id="btn_add_lecturer">Lưu lại</button>
                 <button type="button" class="btn btn-flat btn-danger" data-dismiss="modal">Hủy</button>
             </div>
             </form>
